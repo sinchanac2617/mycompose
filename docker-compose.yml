@@ -1,18 +1,18 @@
 
 version: "3.9"
 
-# Named networks shared between services
+
 networks:
   frontend:
   backend:
 
-# Named volumes for persistent data
+
 volumes:
   pgdata:
   redisdata:
 
 services:
-  # APP: build from ./app; exposes internal port 8000
+  
   app:
     build:
       context: ./app
@@ -21,8 +21,8 @@ services:
     restart: always
     env_file:
       - .env
-      - ./app/.env    # service-specific env (created below)
-        # optional: expose to host for debugging; can remove in prod
+      - ./app/.env   
+        
     networks:
       - frontend
       - backend
@@ -36,7 +36,7 @@ services:
       retries: 3
       start_period: 10s
 
-  # DB: PostgreSQL
+  
   db:
     image: postgres:15
     restart: always
@@ -57,13 +57,13 @@ services:
       retries: 5
       start_period: 10s
 
-  # Cache: Redis
+ 
   cache:
     image: redis:7
     command: ["redis-server", "--save", "60", "1"]
     restart: always
     ports:
-      - "${REDIS_PORT}:6379"   # optional: expose to host for debugging; remove in prod if you want
+      - "${REDIS_PORT}:6379"   
     volumes:
       - redisdata:/data
     networks:
@@ -75,7 +75,7 @@ services:
       retries: 3
       start_period: 5s
 
-  # Reverse proxy: Nginx
+  
   proxy:
     image: nginx:1.25
     restart: always
