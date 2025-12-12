@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Web App</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ffb199, #f6d365, #fda085);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 60px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: 0.4s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 12px 25px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background: #ffffff;
+            color: #ff267e;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.4s ease-in-out;
+            display: inline-block;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            background: #ff267e;
+            color: white;
+            border-color: #ffb3d9;
+            box-shadow: 0px 8px 15px rgba(255, 38, 126, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>✨ Welcome to My Web App ✨</h1>
+        <!-- <p>Your Dockerized application is running successfully on the cloud!</p> -->
+        <a class="btn" href="/api/health">Check API Health</a>
+    </div>
+</body>
+</html>
+
+
